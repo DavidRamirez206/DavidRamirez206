@@ -195,4 +195,4 @@ Universidad Icesi · Cali, Colombia
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="26" height="26" alt="coffee" /></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="26" height="26" alt="coffee" /></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="26" height="26" alt="coffee" /></picture></p>
 
-<p align="center"><sub>Powered by coffee. This profile refreshes itself every week through GitHub Actions.<br>Logos are trademarks of their respective owners.</sub></p>
+<p align="center"><sub>Powered by coffee. This profile refreshes itself every week through GitHub Actions.<br>Logos are trademarks of their respective owners. See LICENSE for terms of use.</sub></p>
