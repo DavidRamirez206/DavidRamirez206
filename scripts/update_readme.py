@@ -148,7 +148,7 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
         ("OWASP", ["file:icons/custom/owasp-{theme}.svg"]),
         ("OWASP ZAP", ["file:icons/custom/zap.svg"]),
         ("Snort", ["file:icons/custom/snort.svg"]),
-        ("Tor", ["si:torproject:brand"]),
+        ("Tor", ["file:icons/custom/tor.svg"]),
     ],
     "Data": [
         ("PostgreSQL", ["skill:postgres", "dev:postgresql"]),
