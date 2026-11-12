@@ -1,0 +1,106 @@
+# Keeps the profile README up to date.
+#
+# Runs every Monday, on demand, and whenever the generator or this workflow
+# changes. Each job commits only when its output actually changed, so repeated
+# runs over the same data produce no new commits.
+
+name: Profile refresh
+
+on:
+  schedule:
+    - cron: "0 6 * * 1"   # Mondays at 06:00 UTC (01:00 in Bogota).
+  workflow_dispatch:
+  push:
+    branches: ["main"]
+    paths:
+      - "scripts/**"
+      - ".github/workflows/**"
+
+concurrency:
+  group: profile-refresh
+  cancel-in-progress: false
+
+jobs:
+  readme:
+    name: Languages, icons and README
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Generate assets and README blocks
+        env:
+          METRICS_TOKEN: ${{ secrets.METRICS_TOKEN }}
+        run: python scripts/update_readme.py
+
+      - name: Commit changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add README.md icons
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: refresh profile assets"
+            git pull --rebase
+            git push
+          fi
+
+  snake:
+    name: Contribution snake
+    runs-on: ubuntu-latest
+    needs: readme
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main   # Includes the commit pushed by the previous job.
+
+      - uses: Platane/snk/svg-only@v3
+        with:
+          github_user_name: DavidRamirez206
+          outputs: |
+            icons/snake-dark.svg?palette=github-dark&color_snake=#A78BFA&color_dots=#161B22,#2E1065,#5B21B6,#7C3AED,#C4B5FD
+            icons/snake-light.svg?palette=github-light&color_snake=#6D28D9&color_dots=#EBEDF0,#DDD6FE,#A78BFA,#7C3AED,#4C1D95
+
+      - name: Commit changes
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add icons/snake-dark.svg icons/snake-light.svg
+          if git diff --cached --quiet; then
+            echo "No changes"
+          else
+            git commit -m "chore: refresh contribution snake"
+            git pull --rebase
+            git push
+          fi
+
+  overview:
+    name: Activity overview
+    runs-on: ubuntu-latest
+    needs: snake
+    permissions:
+      contents: write
+    steps:
+      - uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.profile.svg
+          token: ${{ secrets.METRICS_TOKEN }}
+          # The render embeds its generation time; compare the data instead so an
+          # unchanged overview is not committed again.
+          output_condition: data-changed
+          committer_message: "chore: refresh activity overview"
+          user: DavidRamirez206
+          base: header, activity, community
+          config_timezone: America/Bogota
+          config_display: large
+          repositories: 1000
+          repositories_affiliations: owner, collaborator, organization_member
+          repositories_forks: yes
