@@ -77,6 +77,8 @@ GIFS: list[tuple[str, str, str]] = []
 #   file:<path> an image committed to the repository (SVG or PNG); skipped while missing.
 #               "{theme}" in the path is replaced by "dark" or "light" to use a
 #               separate image per theme.
+# Devicon logos keep their own colors, so a logo that is black or very dark is
+# taken from Simple Icons or drawn as a glyph to stay visible on the dark tile.
 TOOLS: dict[str, list[tuple[str, list[str]]]] = {
     "Mobile": [
         ("Flutter", ["skill:flutter", "dev:flutter"]),
@@ -87,39 +89,47 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
         ("iOS", ["si:ios", "dev:apple"]),
     ],
     "Frameworks": [
-        ("React", ["skill:react", "dev:react"]),
         ("Next.js", ["skill:nextjs", "dev:nextjs"]),
         ("NestJS", ["skill:nestjs", "dev:nestjs"]),
-        ("Node.js", ["skill:nodejs", "dev:nodejs"]),
         ("Spring Boot", ["skill:spring", "dev:spring"]),
         ("Django", ["skill:django", "dev:django"]),
     ],
-    "Architecture": [
+    "Libraries & Runtimes": [
+        ("React", ["skill:react", "dev:react"]),
+        ("Node.js", ["skill:nodejs", "dev:nodejs"]),
+    ],
+    "Architecture & Networking": [
         ("Clean Architecture", ["glyph:clean"]),
-        ("SSH", ["dev:ssh", "glyph:ssh"]),
+        ("SSH", ["glyph:ssh"]),
         ("Tunneling", ["glyph:tunnel"]),
         ("TCP", ["glyph:tcp"]),
         ("UDP", ["glyph:udp"]),
     ],
-    "Cloud & DevOps": [
+    "Cloud": [
         ("AWS", ["skill:aws", "dev:amazonwebservices"]),
         ("Google Cloud", ["skill:gcp", "dev:googlecloud"]),
         ("Cloudflare", ["skill:cloudflare", "dev:cloudflare"]),
+    ],
+    "Containers & CI/CD": [
         ("Docker", ["skill:docker", "dev:docker"]),
         ("Kubernetes", ["skill:kubernetes", "dev:kubernetes"]),
         ("Terraform", ["skill:terraform", "dev:terraform"]),
         ("Jenkins", ["skill:jenkins", "dev:jenkins"]),
         ("GitHub Actions", ["skill:githubactions", "dev:githubactions"]),
+    ],
+    "OS & Shell": [
         ("Linux", ["skill:linux", "dev:linux"]),
         ("Bash", ["skill:bash", "dev:bash"]),
         ("PowerShell", ["skill:powershell", "dev:powershell"]),
     ],
-    "Quality & Security": [
-        ("SonarQube", ["skill:sonarqube", "dev:sonarqube"]),
-        ("Playwright", ["skill:playwright", "dev:playwright"]),
+    "Testing & Quality": [
+        ("SonarQube", ["dev:sonarqube", "si:sonarqube"]),
+        ("Playwright", ["si:playwright", "dev:playwright"]),
         ("Selenium", ["skill:selenium", "dev:selenium"]),
         ("Postman", ["skill:postman", "dev:postman"]),
         ("Newman", ["glyph:newman"]),
+    ],
+    "Security": [
         ("OWASP", ["si:owasp"]),
         ("OWASP ZAP", ["si:zap"]),
         ("Snort", ["si:snort"]),
@@ -130,13 +140,15 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
         ("Oracle", ["dev:oracle"]),
         ("MongoDB", ["skill:mongodb", "dev:mongodb"]),
     ],
-    "Tools": [
+    "Version Control & Artifacts": [
         ("Git", ["skill:git", "dev:git"]),
         ("GitHub", ["skill:github", "dev:github"]),
         ("GitLab", ["skill:gitlab", "dev:gitlab"]),
         ("Bitbucket", ["skill:bitbucket", "dev:bitbucket"]),
         ("Nexus", ["si:sonatype"]),
-        ("Jira", ["dev:jira"]),
+    ],
+    "Productivity": [
+        ("Jira", ["si:jira", "dev:jira"]),
         ("IntelliJ IDEA", ["skill:idea", "dev:intellij"]),
         ("VS Code", ["skill:vscode", "dev:vscode"]),
         ("Google Colab", ["dev:googlecolab"]),
@@ -177,7 +189,7 @@ LANG_SOURCES: dict[str, list[str]] = {
     "Dockerfile": ["skill:docker"], "PLpgSQL": ["skill:postgres"],
     "PLSQL": ["dev:oracle"], "GDScript": ["skill:godot"],
     "Erlang": ["skill:erlang"], "Fortran": ["skill:fortran"],
-    "Jupyter Notebook": ["dev:jupyter"], "Groovy": ["dev:groovy"],
+    "Jupyter Notebook": ["dev:jupyter"], "Groovy": ["si:apachegroovy", "dev:groovy"],
     "Objective-C": ["dev:objectivec"], "Visual Basic .NET": ["dev:visualbasic"],
     "F#": ["dev:fsharp"], "Blade": ["skill:laravel", "dev:laravel"],
     "Makefile": ["dev:cmake"], "CMake": ["skill:cmake", "dev:cmake"],
