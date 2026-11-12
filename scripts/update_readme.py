@@ -17,6 +17,7 @@ Standard library only. Requires the METRICS_TOKEN environment variable.
 """
 
 import base64
+import functools
 import json
 import math
 import os
@@ -40,6 +41,12 @@ MAX_LANGS = 16        # Languages shown in the icon row.
 CARD_LANGS = 8        # Languages listed in the card; the rest are grouped as "Other".
 MIN_SHARE = 0.003     # Languages below this share of the total are ignored.
 ICON_SIZE = 40        # Icon size in pixels.
+
+# Simple Icons major release used for both the icons and their brand colors.
+# Pinned because jsDelivr's "latest" alias serves stale files from an old
+# release for icons that were removed, and only removes them on a new major.
+SIMPLE_ICONS = "https://cdn.jsdelivr.net/npm/simple-icons@16"
+BRAND_MIN_CONTRAST = 3.0  # WCAG ratio a brand color needs against both icon tiles.
 
 FONT = "'Plus Jakarta Sans','Segoe UI',Ubuntu,'Helvetica Neue',Arial,sans-serif"
 
@@ -73,6 +80,9 @@ GIFS: list[tuple[str, str, str]] = []
 #   skill:<id>  https://skillicons.dev
 #   dev:<id>    https://devicon.dev
 #   si:<slug>   https://simpleicons.org (drawn in the theme's foreground color)
+#   si:<slug>:brand  the same icon in its brand color when that color has a
+#               contrast ratio of at least BRAND_MIN_CONTRAST on both tiles;
+#               otherwise drawn in the theme's foreground color as above
 #   glyph:<id>  an original icon drawn by this script
 #   file:<path> an image committed to the repository (SVG or PNG); skipped while missing.
 #               "{theme}" in the path is replaced by "dark" or "light" to use a
@@ -123,21 +133,21 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
         ("PowerShell", ["skill:powershell", "dev:powershell"]),
     ],
     "Testing & Quality": [
-        ("SonarQube", ["dev:sonarqube", "si:sonarqube"]),
-        ("Playwright", ["si:playwright", "dev:playwright"]),
+        ("SonarQube", ["si:sonarqubeserver:brand", "dev:sonarqube"]),
+        ("Playwright", ["dev:playwright"]),
         ("Selenium", ["skill:selenium", "dev:selenium"]),
         ("Postman", ["skill:postman", "dev:postman"]),
         ("Newman", ["glyph:newman"]),
     ],
     "Security": [
-        ("OWASP", ["si:owasp"]),
-        ("OWASP ZAP", ["si:zap"]),
-        ("Snort", ["si:snort"]),
-        ("Tor", ["si:torproject"]),
+        ("OWASP", ["si:owasp:brand"]),
+        ("OWASP ZAP", ["si:zap:brand"]),
+        ("Snort", ["glyph:snort"]),
+        ("Tor", ["si:torproject:brand"]),
     ],
     "Data": [
         ("PostgreSQL", ["skill:postgres", "dev:postgresql"]),
-        ("Oracle", ["dev:oracle"]),
+        ("Oracle", ["glyph:oracle"]),
         ("MongoDB", ["skill:mongodb", "dev:mongodb"]),
     ],
     "Version Control & Artifacts": [
@@ -145,7 +155,7 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
         ("GitHub", ["skill:github", "dev:github"]),
         ("GitLab", ["skill:gitlab", "dev:gitlab"]),
         ("Bitbucket", ["skill:bitbucket", "dev:bitbucket"]),
-        ("Nexus", ["si:sonatype"]),
+        ("Nexus", ["glyph:nexus"]),
     ],
     "Productivity": [
         ("Jira", ["si:jira", "dev:jira"]),
@@ -187,9 +197,9 @@ LANG_SOURCES: dict[str, list[str]] = {
     "Nix": ["skill:nix"], "OCaml": ["skill:ocaml"], "Zig": ["skill:zig"],
     "HCL": ["skill:terraform"], "Markdown": ["skill:md"],
     "Dockerfile": ["skill:docker"], "PLpgSQL": ["skill:postgres"],
-    "PLSQL": ["dev:oracle"], "GDScript": ["skill:godot"],
+    "PLSQL": ["glyph:oracle"], "GDScript": ["skill:godot"],
     "Erlang": ["skill:erlang"], "Fortran": ["skill:fortran"],
-    "Jupyter Notebook": ["dev:jupyter"], "Groovy": ["si:apachegroovy", "dev:groovy"],
+    "Jupyter Notebook": ["dev:jupyter"], "Groovy": ["glyph:groovy"],
     "Objective-C": ["dev:objectivec"], "Visual Basic .NET": ["dev:visualbasic"],
     "F#": ["dev:fsharp"], "Blade": ["skill:laravel", "dev:laravel"],
     "Makefile": ["dev:cmake"], "CMake": ["skill:cmake", "dev:cmake"],
@@ -350,6 +360,24 @@ def glyph(name: str, theme: str, label: str) -> bytes:
             f'<path d="M126 166h56" stroke="{a2}" stroke-width="13" stroke-linecap="round"/>'
             f'<path d="M98 32l14 14 16-20 16 20 14-14v24H98z" fill="{a3}"/>'
         ),
+        "oracle": (
+            # Oracle's rounded "O" capsule; Simple Icons no longer ships the logo
+            # and Devicon only has the wordmark, which is unreadable at icon size.
+            '<rect x="36" y="82" width="184" height="92" rx="46" fill="none" '
+            'stroke="#EA1B22" stroke-width="22"/>'
+        ),
+        # The next three replace logos whose only sources are a hairline drawing
+        # (Snort) or carry a wordmark that is unreadable at icon size.
+        "snort": (
+            f'<ellipse cx="128" cy="136" rx="80" ry="58" fill="none" stroke="{fg}" stroke-width="14"/>'
+            f'<ellipse cx="100" cy="136" rx="14" ry="24" fill="{a1}"/>'
+            f'<ellipse cx="156" cy="136" rx="14" ry="24" fill="{a1}"/>'
+        ),
+        "nexus": (
+            f'<path d="M128 40l76 44v88l-76 44-76-44V84z" fill="none" stroke="{fg}" stroke-width="14" stroke-linejoin="round"/>'
+            f'<text x="128" y="160" font-size="84" fill="{a1}" {font}>N</text>'
+        ),
+        "groovy": f'<path d="{star_path(128, 134, 92, 38)}" fill="{a2}" stroke="{fg}" stroke-width="6" stroke-linejoin="round"/>',
         "newman": (
             f'<rect x="40" y="52" width="176" height="152" rx="18" fill="none" stroke="{fg}" stroke-width="12"/>'
             f'<path d="M40 90h176" stroke="{fg}" stroke-width="10"/>'
@@ -361,6 +389,16 @@ def glyph(name: str, theme: str, label: str) -> bytes:
         return tile(shapes[name], theme)
     letters = "".join(w[0] for w in re.findall(r"[A-Za-z0-9#+]+", label))[:2] or label[:2]
     return tile(f'<text x="128" y="160" font-size="92" fill="{a1}" {font}>{esc(letters)}</text>', theme)
+
+
+def star_path(cx: float, cy: float, outer: float, inner: float) -> str:
+    """Five-pointed star with its top point up, as a closed path."""
+    points = []
+    for i in range(10):
+        r = outer if i % 2 == 0 else inner
+        angle = math.pi / 5 * i - math.pi / 2
+        points.append(f"{cx + r * math.cos(angle):.1f} {cy + r * math.sin(angle):.1f}")
+    return "M" + "L".join(points) + "Z"
 
 
 def coffee_shapes(t: dict) -> str:
@@ -401,6 +439,37 @@ def local_file(rel: str, theme: str) -> bytes | None:
     return tile(f'<image x="40" y="40" width="176" height="176" href="data:{mime};base64,{b64}"/>', theme)
 
 
+def relative_luminance(hex_color: str) -> float:
+    """WCAG 2 relative luminance of a #RRGGBB or RRGGBB color."""
+    h = hex_color.lstrip("#")
+    channels = [int(h[i:i + 2], 16) / 255 for i in (0, 2, 4)]
+    r, g, b = (c / 12.92 if c <= 0.04045 else ((c + 0.055) / 1.055) ** 2.4 for c in channels)
+    return 0.2126 * r + 0.7152 * g + 0.0722 * b
+
+
+def contrast(a: str, b: str) -> float:
+    la, lb = sorted((relative_luminance(a), relative_luminance(b)))
+    return (lb + 0.05) / (la + 0.05)
+
+
+@functools.cache
+def brand_colors() -> dict[str, str]:
+    """slug -> brand hex from the Simple Icons data file, downloaded once per run."""
+    data = http_get(f"{SIMPLE_ICONS}/data/simple-icons.json")
+    try:
+        return {i["slug"]: f"#{i['hex']}" for i in json.loads(data or b"[]") if "slug" in i and "hex" in i}
+    except (ValueError, TypeError, KeyError):
+        return {}
+
+
+def icon_color(slug_name: str, theme: str, brand: bool) -> str:
+    """The brand color when it is readable on both tiles, else the theme's foreground."""
+    color = brand_colors().get(slug_name) if brand else None
+    if color and all(contrast(color, t["icon_bg"]) >= BRAND_MIN_CONTRAST for t in THEMES.values()):
+        return color
+    return THEMES[theme]["icon_fg"]
+
+
 def guessed_sources(name: str) -> list[str]:
     s = re.sub(r"[^a-z0-9]", "", name.lower())
     return [f"skill:{s}", f"dev:{s}", f"si:{s}", "glyph:monogram"]
@@ -420,9 +489,11 @@ def fetch_icon(sources: list[str], theme: str, label: str) -> bytes | None:
                 if has_shapes(data):
                     return embed(data, theme)
         elif kind == "si":
-            data = http_get(f"https://cdn.jsdelivr.net/npm/simple-icons@latest/icons/{ident}.svg")
+            name, _, variant = ident.partition(":")
+            data = http_get(f"{SIMPLE_ICONS}/icons/{name}.svg")
             if has_shapes(data):
-                colored = data.replace(b"<svg ", f'<svg fill="{THEMES[theme]["icon_fg"]}" '.encode(), 1)
+                color = icon_color(name, theme, variant == "brand")
+                colored = data.replace(b"<svg ", f'<svg fill="{color}" '.encode(), 1)
                 return embed(colored, theme)
         elif kind == "file":
             data = local_file(ident, theme)
