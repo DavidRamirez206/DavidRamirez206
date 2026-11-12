@@ -163,7 +163,7 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
         ("Nexus", ["glyph:nexus"]),
     ],
     "Productivity": [
-        ("Jira", ["si:jira", "dev:jira"]),
+        ("Jira", ["file:icons/custom/jira.svg"]),
         ("IntelliJ IDEA", ["skill:idea", "dev:intellij"]),
         ("VS Code", ["skill:vscode", "dev:vscode"]),
         ("Google Colab", ["dev:googlecolab"]),
