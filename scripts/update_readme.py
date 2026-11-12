@@ -475,59 +475,99 @@ def guessed_sources(name: str) -> list[str]:
     return [f"skill:{s}", f"dev:{s}", f"si:{s}", "glyph:monogram"]
 
 
-def fetch_icon(sources: list[str], theme: str, label: str) -> bytes | None:
-    for source in sources:
-        kind, _, ident = source.partition(":")
-        if kind == "skill":
-            data = http_get(f"https://skillicons.dev/icons?i={ident}&theme={theme}")
+def fetch_source(source: str, theme: str, label: str) -> bytes | None:
+    """The icon from a single source for one theme, or None if that source fails."""
+    kind, _, ident = source.partition(":")
+    if kind == "skill":
+        data = http_get(f"https://skillicons.dev/icons?i={ident}&theme={theme}")
+        return data if has_shapes(data) else None
+    if kind == "dev":
+        for variant in ("original", "plain"):
+            data = http_get(
+                f"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{ident}/{ident}-{variant}.svg")
             if has_shapes(data):
-                return data
-        elif kind == "dev":
-            for variant in ("original", "plain"):
-                data = http_get(
-                    f"https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/{ident}/{ident}-{variant}.svg")
-                if has_shapes(data):
-                    return embed(data, theme)
-        elif kind == "si":
-            name, _, variant = ident.partition(":")
-            data = http_get(f"{SIMPLE_ICONS}/icons/{name}.svg")
-            if has_shapes(data):
-                color = icon_color(name, theme, variant == "brand")
-                colored = data.replace(b"<svg ", f'<svg fill="{color}" '.encode(), 1)
-                return embed(colored, theme)
-        elif kind == "file":
-            data = local_file(ident, theme)
-            if data:
-                return data
-        elif kind == "glyph":
-            return glyph(ident, theme, label)
+                return embed(data, theme)
+        return None
+    if kind == "si":
+        name, _, variant = ident.partition(":")
+        data = http_get(f"{SIMPLE_ICONS}/icons/{name}.svg")
+        if not has_shapes(data):
+            return None
+        color = icon_color(name, theme, variant == "brand")
+        return embed(data.replace(b"<svg ", f'<svg fill="{color}" '.encode(), 1), theme)
+    if kind == "file":
+        return local_file(ident, theme)
+    if kind == "glyph":
+        return glyph(ident, theme, label)
     return None
 
 
+def fetch_pair(sources: list[str], label: str) -> tuple[str, dict[str, bytes]] | None:
+    """The first source that works for every theme, with its image per theme.
+
+    A source that fails for only one theme is skipped as a whole, so the light
+    and dark variants can never come from different sources."""
+    for source in sources:
+        images = {theme: fetch_source(source, theme, label) for theme in THEMES}
+        if all(images.values()):
+            return source, images
+    return None
+
+
+# Source of every icon pair handled in this run, keyed by the pair's base path:
+# {base: {theme: source}}. Read by check_icon_pairs() at the end of the run.
+ICON_SOURCES: dict[str, dict[str, str]] = {}
+KEPT = "kept from the previous run"
+
+
 def sync_icons(items: list[tuple[str, list[str], str]], folder: Path) -> list[tuple[str, str]]:
-    """items: (name, sources, tooltip). Writes <slug>-dark.svg and <slug>-light.svg,
-    removes icons that are no longer listed and returns (tooltip, base path)."""
+    """items: (name, sources, tooltip). Writes <slug>-dark.svg and <slug>-light.svg
+    from one source, removes icons that are no longer listed and returns
+    (tooltip, base path) for every icon that has both variants."""
     folder.mkdir(parents=True, exist_ok=True)
     keep, result = set(), []
     for name, sources, tooltip in items:
         base = folder / slug(name)
-        complete = True
-        for theme in THEMES:
-            path = base.with_name(f"{base.name}-{theme}.svg")
-            data = fetch_icon(sources, theme, name)
-            if data:
-                write_if_changed(path, data)
-            # If a CDN is down, the copy from the previous run is kept.
-            complete = complete and path.exists()
-            keep.add(path.name)
-        if complete:
-            result.append((tooltip, base.relative_to(ROOT).as_posix()))
+        paths = {theme: base.with_name(f"{base.name}-{theme}.svg") for theme in THEMES}
+        key = base.relative_to(ROOT).as_posix()
+        pair = fetch_pair(sources, name)
+        if pair:
+            source, images = pair
+            for theme, path in paths.items():
+                write_if_changed(path, images[theme])
+            ICON_SOURCES[key] = dict.fromkeys(THEMES, source)
+        elif all(p.exists() for p in paths.values()):
+            # Every source is unreachable (a CDN outage): keep the previous pair,
+            # which an earlier run wrote from a single source.
+            print(f"Kept the previous icon for {name}: no source answered", file=sys.stderr)
+            ICON_SOURCES[key] = dict.fromkeys(THEMES, KEPT)
         else:
+            # A lone variant would show different icons per theme; drop it.
+            for path in paths.values():
+                path.unlink(missing_ok=True)
             print(f"No icon for {name}", file=sys.stderr)
+            continue
+        keep.update(p.name for p in paths.values())
+        result.append((tooltip, key))
     for old in folder.glob("*.svg"):
         if old.name not in keep:
             old.unlink()
     return result
+
+
+def check_icon_pairs() -> None:
+    """Fails the run if any icon is missing a variant or its variants came from
+    different sources, so a mismatched pair is never committed."""
+    problems = []
+    for base, sources in sorted(ICON_SOURCES.items()):
+        missing = [t for t in THEMES if not (ROOT / f"{base}-{t}.svg").is_file()]
+        if missing:
+            problems.append(f"{base}: missing {', '.join(missing)} variant")
+        if len(set(sources.values())) != 1 or set(sources) != set(THEMES):
+            detail = ", ".join(f"{t}={s}" for t, s in sorted(sources.items()))
+            problems.append(f"{base}: variants come from different sources ({detail})")
+    if problems:
+        sys.exit("Icon pairs do not match:\n  " + "\n  ".join(problems))
 
 
 def picture(base: str, label: str, size: int = ICON_SIZE) -> str:
@@ -786,6 +826,7 @@ def main() -> None:
     text = replace_block(text, "TOOLS", tools_block(groups))
     text = replace_block(text, "FUN", fun_block(fun))
     write_if_changed(README, text)
+    check_icon_pairs()
 
     print("Languages:", ", ".join(f"{n} {s / grand:.1%}" for n, s in ranked), file=sys.stderr)
 
