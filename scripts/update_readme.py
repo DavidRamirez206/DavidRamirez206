@@ -129,6 +129,7 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
     ],
     "OS & Shell": [
         ("Linux", ["skill:linux", "dev:linux"]),
+        ("Windows", ["skill:windows", "dev:windows11"]),
         ("Bash", ["skill:bash", "dev:bash"]),
         ("PowerShell", ["skill:powershell", "dev:powershell"]),
     ],
