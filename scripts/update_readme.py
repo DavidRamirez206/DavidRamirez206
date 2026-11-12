@@ -108,8 +108,12 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
         ("React", ["skill:react", "dev:react"]),
         ("Node.js", ["skill:nodejs", "dev:nodejs"]),
     ],
-    "Architecture & Networking": [
+    "Architecture & Modeling": [
         ("Clean Architecture", ["glyph:clean"]),
+        ("UML", ["file:icons/custom/uml.svg"]),
+        ("Visual Paradigm", ["file:icons/custom/visual-paradigm.svg"]),
+    ],
+    "Networking": [
         ("SSH", ["glyph:ssh"]),
         ("Tunneling", ["glyph:tunnel"]),
         ("TCP", ["glyph:tcp"]),
@@ -134,16 +138,16 @@ TOOLS: dict[str, list[tuple[str, list[str]]]] = {
         ("PowerShell", ["skill:powershell", "dev:powershell"]),
     ],
     "Testing & Quality": [
-        ("SonarQube", ["si:sonarqubeserver:brand", "dev:sonarqube"]),
+        ("SonarQube", ["file:icons/custom/sonarqube.svg"]),
         ("Playwright", ["dev:playwright"]),
         ("Selenium", ["skill:selenium", "dev:selenium"]),
         ("Postman", ["skill:postman", "dev:postman"]),
         ("Newman", ["glyph:newman"]),
     ],
     "Security": [
-        ("OWASP", ["si:owasp:brand"]),
-        ("OWASP ZAP", ["si:zap:brand"]),
-        ("Snort", ["glyph:snort"]),
+        ("OWASP", ["file:icons/custom/owasp-{theme}.svg"]),
+        ("OWASP ZAP", ["file:icons/custom/zap.svg"]),
+        ("Snort", ["file:icons/custom/snort.svg"]),
         ("Tor", ["si:torproject:brand"]),
     ],
     "Data": [
@@ -367,13 +371,8 @@ def glyph(name: str, theme: str, label: str) -> bytes:
             '<rect x="36" y="82" width="184" height="92" rx="46" fill="none" '
             'stroke="#EA1B22" stroke-width="22"/>'
         ),
-        # The next three replace logos whose only sources are a hairline drawing
-        # (Snort) or carry a wordmark that is unreadable at icon size.
-        "snort": (
-            f'<ellipse cx="128" cy="136" rx="80" ry="58" fill="none" stroke="{fg}" stroke-width="14"/>'
-            f'<ellipse cx="100" cy="136" rx="14" ry="24" fill="{a1}"/>'
-            f'<ellipse cx="156" cy="136" rx="14" ry="24" fill="{a1}"/>'
-        ),
+        # The next two replace logos whose only sources carry a wordmark that is
+        # unreadable at icon size.
         "nexus": (
             f'<path d="M128 40l76 44v88l-76 44-76-44V84z" fill="none" stroke="{fg}" stroke-width="14" stroke-linejoin="round"/>'
             f'<text x="128" y="160" font-size="84" fill="{a1}" {font}>N</text>'
