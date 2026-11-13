@@ -35,7 +35,8 @@
 
 ## About
 
-<img align="right" src="./assets/gifs/jjk/megumi/megumi.gif" width="170" hspace="16" vspace="6" alt="Megumi" />
+<img align="right" src="./assets/gifs/jjk/megumi/megumi.gif" width="170" alt="Megumi" />
+<img align="right" src="./icons/spacer.svg" width="16" height="189" alt="" />
 
 Systems Engineer from **Universidad Icesi** in Cali, Colombia. I enjoy designing and building **optimal solutions**, and I have a soft spot for **mobile app development**, **software architecture**, **DevOps culture** and **test automation**.
 
