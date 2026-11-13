@@ -35,7 +35,7 @@
 
 ## About
 
-<img align="right" src="./assets/gifs/jjk/megumi/megumi.gif" width="170" alt="Megumi" />
+<img align="right" src="./assets/gifs/jjk/megumi/megumi.gif" width="170" hspace="16" vspace="6" alt="Megumi" />
 
 Systems Engineer from **Universidad Icesi** in Cali, Colombia. I enjoy designing and building **optimal solutions**, and I have a soft spot for **mobile app development**, **software architecture**, **DevOps culture** and **test automation**.
 
@@ -180,8 +180,6 @@ Universidad Icesi · Cali, Colombia
 
 ## Side quests
 
-<p align="center"><img src="./assets/gifs/jjk/satoru/gojo-happy.gif" width="150" alt="Happy Gojo" /></p>
-
 <sub>Not my stack, just things I enjoy. Mostly coffee.</sub>
 
 <!-- FUN:START -->
@@ -190,7 +188,7 @@ Universidad Icesi · Cali, Colombia
 </p>
 <!-- FUN:END -->
 
-<p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="28" height="28" alt="coffee" /></picture></p>
+<p align="center"><img src="./assets/gifs/jjk/satoru/gojo-happy.gif" width="170" alt="Happy Gojo" /></p>
 
 ## Cursed energy
 
