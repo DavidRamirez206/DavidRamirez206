@@ -75,7 +75,7 @@ My dream? Drinking coffee and resting. Yes, coffee again. <picture><source media
 </picture>
 
 **Systems Engineering**<br>
-Universidad Icesi · Cali, Colombia
+Icesi University · Cali, Colombia
 
 <br clear="left">
 
