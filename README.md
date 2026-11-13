@@ -11,18 +11,18 @@
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=800&size=44&duration=2200&pause=99999&color=E9D5FF&center=true&vCenter=true&repeat=false&width=760&height=70&lines=Ismael+Barrionuevo" />
-    <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=800&size=44&duration=2200&pause=99999&color=4C1D95&center=true&vCenter=true&repeat=false&width=760&height=70&lines=Ismael+Barrionuevo" alt="Ismael Barrionuevo" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=800&size=44&duration=2200&pause=99999&color=CFE3FF&center=true&vCenter=true&repeat=false&width=760&height=70&lines=Ismael+Barrionuevo" />
+    <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=800&size=44&duration=2200&pause=99999&color=072897&center=true&vCenter=true&repeat=false&width=760&height=70&lines=Ismael+Barrionuevo" alt="Ismael Barrionuevo" />
   </picture>
   <br>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=600&size=15&duration=1&pause=99999&color=93C5FD&center=true&vCenter=true&repeat=false&width=760&height=26&lines=SYSTEMS+ENGINEER++%C2%B7++MOBILE++%C2%B7++SOFTWARE+ARCHITECTURE++%C2%B7++DEVOPS++%C2%B7++TEST+AUTOMATION" />
-    <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=600&size=15&duration=1&pause=99999&color=1D4ED8&center=true&vCenter=true&repeat=false&width=760&height=26&lines=SYSTEMS+ENGINEER++%C2%B7++MOBILE++%C2%B7++SOFTWARE+ARCHITECTURE++%C2%B7++DEVOPS++%C2%B7++TEST+AUTOMATION" alt="Systems Engineer · Mobile · Software Architecture · DevOps · Test Automation" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=600&size=15&duration=1&pause=99999&color=5AA9FF&center=true&vCenter=true&repeat=false&width=760&height=26&lines=SYSTEMS+ENGINEER++%C2%B7++MOBILE++%C2%B7++SOFTWARE+ARCHITECTURE++%C2%B7++DEVOPS++%C2%B7++TEST+AUTOMATION" />
+    <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=600&size=15&duration=1&pause=99999&color=1F6BD9&center=true&vCenter=true&repeat=false&width=760&height=26&lines=SYSTEMS+ENGINEER++%C2%B7++MOBILE++%C2%B7++SOFTWARE+ARCHITECTURE++%C2%B7++DEVOPS++%C2%B7++TEST+AUTOMATION" alt="Systems Engineer · Mobile · Software Architecture · DevOps · Test Automation" />
   </picture>
   <br>
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=500&size=17&duration=3200&pause=1100&color=A78BFA&center=true&vCenter=true&width=760&height=40&lines=Building+optimal+solutions%2C+one+cup+of+coffee+at+a+time.;Domain+expansion%3A+infrastructure+as+code.;Every+bug+is+a+curse+waiting+to+be+exorcised.;Learn+relentlessly.+Teach+generously." />
-    <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=500&size=17&duration=3200&pause=1100&color=6D28D9&center=true&vCenter=true&width=760&height=40&lines=Building+optimal+solutions%2C+one+cup+of+coffee+at+a+time.;Domain+expansion%3A+infrastructure+as+code.;Every+bug+is+a+curse+waiting+to+be+exorcised.;Learn+relentlessly.+Teach+generously." alt="Rotating taglines" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=500&size=17&duration=3200&pause=1100&color=0888F8&center=true&vCenter=true&width=760&height=40&lines=Building+optimal+solutions%2C+one+cup+of+coffee+at+a+time.;Domain+expansion%3A+infrastructure+as+code.;Every+bug+is+a+curse+waiting+to+be+exorcised.;Learn+relentlessly.+Teach+generously." />
+    <img src="https://readme-typing-svg.demolab.com?font=Plus+Jakarta+Sans&weight=500&size=17&duration=3200&pause=1100&color=072897&center=true&vCenter=true&width=760&height=40&lines=Building+optimal+solutions%2C+one+cup+of+coffee+at+a+time.;Domain+expansion%3A+infrastructure+as+code.;Every+bug+is+a+curse+waiting+to+be+exorcised.;Learn+relentlessly.+Teach+generously." alt="Rotating taglines" />
   </picture>
 </p>
 
@@ -196,8 +196,8 @@ Universidad Icesi · Cali, Colombia
 
 <p align="center">
   <picture>
-    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=DavidRamirez206&hide_border=true&border_radius=14&background=0D1117&stroke=30363D&ring=A78BFA&fire=60A5FA&currStreakLabel=C4B5FD&sideLabels=E6EDF3&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=8B949E" />
-    <img src="https://streak-stats.demolab.com?user=DavidRamirez206&hide_border=true&border_radius=14&background=FFFFFF&stroke=D0D7DE&ring=7C3AED&fire=2563EB&currStreakLabel=6D28D9&sideLabels=1F2328&currStreakNum=1F2328&sideNums=1F2328&dates=57606A" alt="Contribution streak" />
+    <source media="(prefers-color-scheme: dark)" srcset="https://streak-stats.demolab.com?user=DavidRamirez206&hide_border=true&border_radius=14&background=0D1117&stroke=30363D&ring=1F6BD9&fire=0888F8&currStreakLabel=5AA9FF&sideLabels=E6EDF3&currStreakNum=FFFFFF&sideNums=FFFFFF&dates=8B949E" />
+    <img src="https://streak-stats.demolab.com?user=DavidRamirez206&hide_border=true&border_radius=14&background=FFFFFF&stroke=D0D7DE&ring=072897&fire=1F6BD9&currStreakLabel=072897&sideLabels=1F2328&currStreakNum=1F2328&sideNums=1F2328&dates=57606A" alt="Contribution streak" />
   </picture>
 </p>
 

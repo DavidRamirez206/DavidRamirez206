@@ -50,23 +50,27 @@ BRAND_MIN_CONTRAST = 3.0  # WCAG ratio a brand color needs against both icon til
 
 FONT = "'Plus Jakarta Sans','Segoe UI',Ubuntu,'Helvetica Neue',Arial,sans-serif"
 
+# Accent colors follow the blue of Itadori's sleeve. The deepest blues are
+# used only in light mode because they are unreadable on dark backgrounds.
+# "icon_accent" replaces the primary accent inside drawn icon tiles: the dark
+# primary blue reaches only 2.9:1 on the dark tile, below the 3:1 used for logos.
 THEMES = {
     "dark": {
-        "bg1": "#0B0A1A", "bg2": "#161437", "card": "#0D1117", "border": "#30363D",
+        "bg1": "#050A1A", "bg2": "#0B1A3D", "card": "#0D1117", "border": "#30363D",
         "text": "#E6EDF3", "muted": "#8B949E", "track": "#21262D",
-        "a1": "#A78BFA", "a2": "#60A5FA", "a3": "#C084FC", "glow": "#7C3AED",
-        "icon_bg": "#242938", "icon_fg": "#E6EDF3",
-        "series": ["#A78BFA", "#818CF8", "#60A5FA", "#22D3EE", "#C084FC",
-                   "#F472B6", "#2DD4BF", "#FBBF24"],
+        "a1": "#1F6BD9", "a2": "#0888F8", "a3": "#5AA9FF", "glow": "#072897",
+        "icon_bg": "#242938", "icon_fg": "#E6EDF3", "icon_accent": "#5AA9FF",
+        "series": ["#1F6BD9", "#0888F8", "#5AA9FF", "#22D3EE", "#3B5BDB",
+                   "#93C5FD", "#2DD4BF", "#FBBF24"],
         "other": "#484F58",
     },
     "light": {
-        "bg1": "#F5F3FF", "bg2": "#E0E7FF", "card": "#FFFFFF", "border": "#D0D7DE",
+        "bg1": "#F0F5FF", "bg2": "#DCE8FF", "card": "#FFFFFF", "border": "#D0D7DE",
         "text": "#1F2328", "muted": "#57606A", "track": "#EAEEF2",
-        "a1": "#6D28D9", "a2": "#2563EB", "a3": "#9333EA", "glow": "#8B5CF6",
-        "icon_bg": "#F4F2ED", "icon_fg": "#1F2328",
-        "series": ["#7C3AED", "#4F46E5", "#2563EB", "#0891B2", "#9333EA",
-                   "#DB2777", "#0D9488", "#D97706"],
+        "a1": "#072897", "a2": "#1F6BD9", "a3": "#3B5BDB", "glow": "#1F6BD9",
+        "icon_bg": "#F4F2ED", "icon_fg": "#1F2328", "icon_accent": "#072897",
+        "series": ["#072897", "#1F6BD9", "#0888F8", "#0891B2", "#3B5BDB",
+                   "#0A2156", "#0D9488", "#D97706"],
         "other": "#AFB8C1",
     },
 }
@@ -325,7 +329,7 @@ def embed(raw: bytes, theme: str) -> bytes:
 
 def glyph(name: str, theme: str, label: str) -> bytes:
     """Original icons for concepts that have no logo."""
-    t = THEMES[theme]
+    t = {**THEMES[theme], "a1": THEMES[theme]["icon_accent"]}
     fg, a1, a2, a3 = t["icon_fg"], t["a1"], t["a2"], t["a3"]
     font = "font-family=\"Arial,Helvetica,sans-serif\" font-weight=\"800\" text-anchor=\"middle\""
     shapes = {
