@@ -94,11 +94,11 @@ Icesi University · Cali, Colombia
 </p>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/java-dark.svg" /><img src="./icons/langs/java-light.svg" width="40" height="40" alt="Java · 32.7%" title="Java · 32.7%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/html-dark.svg" /><img src="./icons/langs/html-light.svg" width="40" height="40" alt="HTML · 21.1%" title="HTML · 21.1%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/java-dark.svg" /><img src="./icons/langs/java-light.svg" width="40" height="40" alt="Java · 32.6%" title="Java · 32.6%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/html-dark.svg" /><img src="./icons/langs/html-light.svg" width="40" height="40" alt="HTML · 21.0%" title="HTML · 21.0%" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/typescript-dark.svg" /><img src="./icons/langs/typescript-light.svg" width="40" height="40" alt="TypeScript · 13.1%" title="TypeScript · 13.1%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/python-dark.svg" /><img src="./icons/langs/python-light.svg" width="40" height="40" alt="Python · 11.0%" title="Python · 11.0%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/jupyter-notebook-dark.svg" /><img src="./icons/langs/jupyter-notebook-light.svg" width="40" height="40" alt="Jupyter Notebook · 11.0%" title="Jupyter Notebook · 11.0%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/python-dark.svg" /><img src="./icons/langs/python-light.svg" width="40" height="40" alt="Python · 11.1%" title="Python · 11.1%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/jupyter-notebook-dark.svg" /><img src="./icons/langs/jupyter-notebook-light.svg" width="40" height="40" alt="Jupyter Notebook · 10.9%" title="Jupyter Notebook · 10.9%" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/javascript-dark.svg" /><img src="./icons/langs/javascript-light.svg" width="40" height="40" alt="JavaScript · 2.5%" title="JavaScript · 2.5%" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/tex-dark.svg" /><img src="./icons/langs/tex-light.svg" width="40" height="40" alt="TeX · 1.6%" title="TeX · 1.6%" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/kotlin-dark.svg" /><img src="./icons/langs/kotlin-light.svg" width="40" height="40" alt="Kotlin · 1.6%" title="Kotlin · 1.6%" /></picture>
