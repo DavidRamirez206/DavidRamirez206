@@ -8,7 +8,7 @@ name: Profile refresh
 
 on:
   schedule:
-    - cron: "0 5 * * *"   # Todos los días a las 12:00 AM en Bogotá (05:00 UTC).
+    - cron: "0 6 * * 1"   # Mondays at 06:00 UTC (01:00 in Bogota).
   workflow_dispatch:
   push:
     branches: ["main"]
