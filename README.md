@@ -38,7 +38,7 @@
 <img align="right" src="./assets/gifs/jjk/megumi/megumi.gif" width="170" alt="Megumi" />
 <img align="right" src="./icons/spacer.svg" width="16" height="189" alt="" />
 
-Systems Engineer from **Universidad Icesi** in Cali, Colombia. I enjoy designing and building **optimal solutions**, and I have a soft spot for **mobile app development**, **software architecture**, **DevOps culture** and **test automation**.
+Systems Engineer from **Icesi University** in Cali, Colombia. I enjoy designing and building **optimal solutions**, and I have a soft spot for **mobile app development**, **software architecture**, **DevOps culture** and **test automation**.
 
 I'm still in training, and I love challenges that push me toward new horizons of learning. Beyond code, I like anime, exploring new things, walking, meeting people and teaching what I've learned throughout my life, not just during my degree. And coffee. I really enjoy a good cup of coffee. <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="20" height="20" alt="coffee" /></picture>
 
@@ -217,4 +217,4 @@ Universidad Icesi · Cali, Colombia
 
 <p align="center"><img src="./assets/gifs/jjk/sukuna/sukuna-laugh.gif" width="110" alt="Sukuna laughing" /></p>
 
-<p align="center"><sub>Powered by coffee. This profile refreshes itself every week through GitHub Actions.<br>Logos are trademarks of their respective owners. See LICENSE for terms of use.</sub></p>
+<p align="center"><sub>Powered by coffee, it doesn't keep me up at night. This profile refreshes itself every week through GitHub Actions.<br>Logos are trademarks of their respective owners. See LICENSE for terms of use.</sub></p>
