@@ -217,4 +217,4 @@ Universidad Icesi · Cali, Colombia
 
 <p align="center"><img src="./assets/gifs/jjk/sukuna/sukuna-laugh.gif" width="110" alt="Sukuna laughing" /></p>
 
-<p align="center"><sub>Powered by coffee, it doesn't keep me up at night. This profile refreshes itself every week through GitHub Actions.<br>Logos are trademarks of their respective owners. See LICENSE for terms of use.</sub></p>
+<p align="center"><sub>Powered by coffee. This profile refreshes itself every week through GitHub Actions.<br>Logos are trademarks of their respective owners. See LICENSE for terms of use.</sub></p>
