@@ -29,9 +29,13 @@
 <!-- GIFS:START -->
 <!-- GIFS:END -->
 
+<p align="center"><img src="./assets/gifs/jjk/satoru/gojo-eyes.gif" width="75%" alt="Gojo's eyes" /></p>
+
 <br>
 
 ## About
+
+<img align="right" src="./assets/gifs/jjk/megumi/megumi.gif" width="170" alt="Megumi" />
 
 Systems Engineer from **Universidad Icesi** in Cali, Colombia. I enjoy designing and building **optimal solutions**, and I have a soft spot for **mobile app development**, **software architecture**, **DevOps culture** and **test automation**.
 
@@ -60,6 +64,8 @@ My dream? Drinking coffee and resting. Yes, coffee again. <picture><source media
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="28" height="28" alt="coffee" /></picture></p>
 
+<br clear="right">
+
 ## Education
 
 <picture>
@@ -73,6 +79,8 @@ Universidad Icesi · Cali, Colombia
 <br clear="left">
 
 ## Cursed techniques
+
+<p align="center"><img src="./assets/gifs/jjk/sukuna/sukuna-hands.gif" width="70%" alt="Sukuna's hand sign" /></p>
 
 <sub>Languages across every repository I've worked on, recalculated every week.</sub>
 
@@ -103,6 +111,11 @@ Universidad Icesi · Cali, Colombia
 <!-- LANGS:END -->
 
 ## Arsenal
+
+<p align="center">
+  <img src="./assets/gifs/jjk/yuta/yuta-rika-summon.gif" width="48%" alt="Yuta summoning Rika" />
+  <img src="./assets/gifs/jjk/itadori/itadori-punch.gif" width="48%" alt="Itadori's punch" />
+</p>
 
 <!-- TOOLS:START -->
 <table align="center">
@@ -167,6 +180,8 @@ Universidad Icesi · Cali, Colombia
 
 ## Side quests
 
+<p align="center"><img src="./assets/gifs/jjk/satoru/gojo-happy.gif" width="150" alt="Happy Gojo" /></p>
+
 <sub>Not my stack, just things I enjoy. Mostly coffee.</sub>
 
 <!-- FUN:START -->
@@ -178,6 +193,8 @@ Universidad Icesi · Cali, Colombia
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="28" height="28" alt="coffee" /></picture></p>
 
 ## Cursed energy
+
+<p align="center"><img src="./assets/gifs/jjk/sukuna/sukuna-smile.gif" width="60%" alt="Sukuna smiling" /></p>
 
 <p align="center">
   <picture>
@@ -198,5 +215,7 @@ Universidad Icesi · Cali, Colombia
 </p>
 
 <p align="center"><picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="26" height="26" alt="coffee" /></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="26" height="26" alt="coffee" /></picture> <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/coffee-dark.svg" /><img src="./icons/coffee-light.svg" width="26" height="26" alt="coffee" /></picture></p>
+
+<p align="center"><img src="./assets/gifs/jjk/sukuna/sukuna-laugh.gif" width="110" alt="Sukuna laughing" /></p>
 
 <p align="center"><sub>Powered by coffee. This profile refreshes itself every week through GitHub Actions.<br>Logos are trademarks of their respective owners. See LICENSE for terms of use.</sub></p>
