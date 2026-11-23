@@ -94,19 +94,19 @@ Icesi University · Cali, Colombia
 </p>
 
 <p align="center">
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/java-dark.svg" /><img src="./icons/langs/java-light.svg" width="40" height="40" alt="Java · 32.0%" title="Java · 32.0%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/html-dark.svg" /><img src="./icons/langs/html-light.svg" width="40" height="40" alt="HTML · 20.6%" title="HTML · 20.6%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/html-dark.svg" /><img src="./icons/langs/html-light.svg" width="40" height="40" alt="HTML · 29.4%" title="HTML · 29.4%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/java-dark.svg" /><img src="./icons/langs/java-light.svg" width="40" height="40" alt="Java · 27.2%" title="Java · 27.2%" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/typescript-dark.svg" /><img src="./icons/langs/typescript-light.svg" width="40" height="40" alt="TypeScript · 12.8%" title="TypeScript · 12.8%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/jupyter-notebook-dark.svg" /><img src="./icons/langs/jupyter-notebook-light.svg" width="40" height="40" alt="Jupyter Notebook · 12.3%" title="Jupyter Notebook · 12.3%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/python-dark.svg" /><img src="./icons/langs/python-light.svg" width="40" height="40" alt="Python · 11.0%" title="Python · 11.0%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/javascript-dark.svg" /><img src="./icons/langs/javascript-light.svg" width="40" height="40" alt="JavaScript · 2.5%" title="JavaScript · 2.5%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/tex-dark.svg" /><img src="./icons/langs/tex-light.svg" width="40" height="40" alt="TeX · 1.6%" title="TeX · 1.6%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/kotlin-dark.svg" /><img src="./icons/langs/kotlin-light.svg" width="40" height="40" alt="Kotlin · 1.6%" title="Kotlin · 1.6%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/shell-dark.svg" /><img src="./icons/langs/shell-light.svg" width="40" height="40" alt="Shell · 1.5%" title="Shell · 1.5%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/css-dark.svg" /><img src="./icons/langs/css-light.svg" width="40" height="40" alt="CSS · 1.4%" title="CSS · 1.4%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/jupyter-notebook-dark.svg" /><img src="./icons/langs/jupyter-notebook-light.svg" width="40" height="40" alt="Jupyter Notebook · 9.8%" title="Jupyter Notebook · 9.8%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/python-dark.svg" /><img src="./icons/langs/python-light.svg" width="40" height="40" alt="Python · 9.4%" title="Python · 9.4%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/javascript-dark.svg" /><img src="./icons/langs/javascript-light.svg" width="40" height="40" alt="JavaScript · 2.7%" title="JavaScript · 2.7%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/shell-dark.svg" /><img src="./icons/langs/shell-light.svg" width="40" height="40" alt="Shell · 1.8%" title="Shell · 1.8%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/css-dark.svg" /><img src="./icons/langs/css-light.svg" width="40" height="40" alt="CSS · 1.3%" title="CSS · 1.3%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/tex-dark.svg" /><img src="./icons/langs/tex-light.svg" width="40" height="40" alt="TeX · 1.3%" title="TeX · 1.3%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/kotlin-dark.svg" /><img src="./icons/langs/kotlin-light.svg" width="40" height="40" alt="Kotlin · 1.3%" title="Kotlin · 1.3%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/groovy-dark.svg" /><img src="./icons/langs/groovy-light.svg" width="40" height="40" alt="Groovy · 0.8%" title="Groovy · 0.8%" /></picture>
+  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/hcl-dark.svg" /><img src="./icons/langs/hcl-light.svg" width="40" height="40" alt="HCL · 0.6%" title="HCL · 0.6%" /></picture>
   <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/dockerfile-dark.svg" /><img src="./icons/langs/dockerfile-light.svg" width="40" height="40" alt="Dockerfile · 0.6%" title="Dockerfile · 0.6%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/groovy-dark.svg" /><img src="./icons/langs/groovy-light.svg" width="40" height="40" alt="Groovy · 0.6%" title="Groovy · 0.6%" /></picture>
-  <picture><source media="(prefers-color-scheme: dark)" srcset="./icons/langs/blade-dark.svg" /><img src="./icons/langs/blade-light.svg" width="40" height="40" alt="Blade · 0.3%" title="Blade · 0.3%" /></picture>
 </p>
 <!-- LANGS:END -->
 
